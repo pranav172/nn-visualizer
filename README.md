@@ -1,73 +1,153 @@
-# React + TypeScript + Vite
+📌 Neural Network Visualizer (Interactive + Trainable)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive Neural Network Visualizer built with React, TypeScript, TensorFlow.js, and Vite.
+It allows users to design, train, visualize, and evaluate neural networks directly in the browser — no backend required.
 
-Currently, two official plugins are available:
+🚀 Live Demo: https://nn-visualizer-zeta.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✨ Features
+🧠 1. Visual Neural Network Builder
 
-## React Compiler
+Add/remove Dense layers
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Choose activation functions (ReLU, tanh, sigmoid, softmax, linear)
 
-## Expanding the ESLint configuration
+Customize input shapes
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Real-time architecture preview
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🎨 2. Network Canvas (with Activations)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Renders neurons + fullyconnected edges
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Neurons dynamically change color based on activation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Hover tooltips show exact activation values
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Updated live during forward pass
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📊 3. Live Training Metrics
+
+Tracks loss and accuracy per epoch
+
+Smooth line charts (Chart.js)
+
+Supports adjustable learning rate + epochs
+
+🔍 4. Dataset Playground
+
+Switch between:
+
+XOR
+
+Moons
+
+Spiral
+Each dataset has train/test splits and categorical labels.
+
+⚡ 5. Forward Pass & Activations
+
+Run forward pass on any custom input
+
+See per-layer activations
+
+“Run All XOR” mode displays activations + predictions for all four XOR inputs
+
+🧪 6. Evaluation Mode
+
+Displays predicted probabilities
+
+Shows confidence thresholds
+
+Computes final test-set loss and accuracy
+
+Results table highlighting low-confidence predictions
+
+💾 7. Save & Load Models
+
+Save model to IndexedDB
+
+Download model files (model.json + weights)
+
+Load uploaded models for inference
+
+🛠️ Tech Stack
+Technology	Purpose
+React + TypeScript	UI and component logic
+TensorFlow.js	Neural network creation, training, inference
+Vite	Fast bundling & development
+TailwindCSS	Styling
+Chart.js	Training metric graphs
+IndexedDB	Local model storage
+📁 Project Structure
+src/
+ ├─ components/
+ │   ├─ LayerEditor.tsx
+ │   ├─ NetworkCanvas.tsx
+ │   ├─ MetricsChart.tsx
+ │   ├─ ActivationPanel.tsx
+ │
+ ├─ hooks/
+ │   ├─ useModelBuilder.ts
+ │   ├─ useTrainer.ts
+ │   ├─ useForwardActivations.ts
+ │
+ ├─ data/
+ │   ├─ datasets.ts
+ │   ├─ dataSelector.ts
+ │
+ ├─ App.tsx
+ └─ main.tsx
+
+🧩 How It Works
+🧱 Build Model
+
+A simple JSON-like layer spec is converted into a tf.Sequential model.
+
+🎓 Training
+
+Uses TensorFlow.js .fit() with epoch callbacks to update the UI live.
+
+🔥 Activations
+
+Forward-pass is manually implemented through layer.apply() to extract
+per-layer activations even during inference.
+
+🖼 Visualization
+
+SVG-based network canvas dynamically renders neuron layers, links, and activation color.
+
+🚀 Running Locally
+git clone <repo-url>
+cd nn-visualizer
+npm install
+npm run dev
+
+
+Open:
+👉 http://localhost:5173
+
+🧪 Build for Production
+npm run build
+npm run preview
+
+🌐 Deployment
+
+This project is deployed on Vercel.
+To deploy your own version:
+
+npm i -g vercel
+vercel
+
+
+Or use the Vercel GitHub import UI.
+
+🙌 Author
+
+Pranav Raj
+Beginner in Machine Learning | Deep Learning Learner | React & AI Projects
+Passionate about building practical tools to understand ML better.
+
+⭐ If you find this useful
+
+Please ⭐ the repo — it motivates further development!
