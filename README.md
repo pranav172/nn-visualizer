@@ -1,85 +1,77 @@
-📌 Neural Network Visualizer (Interactive + Trainable)
 
-An interactive Neural Network Visualizer built with React, TypeScript, TensorFlow.js, and Vite.
-It allows users to design, train, visualize, and evaluate neural networks directly in the browser — no backend required.
 
-🚀 Live Demo: https://nn-visualizer-zeta.vercel.app/
+# 🚀 Neural Network Visualizer (Interactive + Trainable)
 
-✨ Features
-🧠 1. Visual Neural Network Builder
+An interactive neural network visualizer built with **React**, **TypeScript**, **TensorFlow.js**, and **Vite**.
+Design, train, visualize, and evaluate neural networks directly in the browser — **no backend required**.
 
-Add/remove Dense layers
+🔗 **Live Demo:** [https://nn-visualizer-zeta.vercel.app/](https://nn-visualizer-zeta.vercel.app/)
 
-Choose activation functions (ReLU, tanh, sigmoid, softmax, linear)
+---
 
-Customize input shapes
+## ✨ Features
 
-Real-time architecture preview
+### 🧠 1. Visual Neural Network Builder
 
-🎨 2. Network Canvas (with Activations)
+* Add/remove Dense layers
+* Choose activation functions *(ReLU, tanh, sigmoid, softmax, linear)*
+* Define input shapes
+* Real-time architecture preview
 
-Renders neurons + fullyconnected edges
+### 🎨 2. Network Canvas (with Activations)
 
-Neurons dynamically change color based on activation
+* Renders neurons + fully connected edges
+* Color-coded neurons based on activation strength
+* Hover tooltips show exact activation values
+* Updates live during forward pass
 
-Hover tooltips show exact activation values
+### 📊 3. Live Training Metrics
 
-Updated live during forward pass
+* Tracks **loss** and **accuracy** per epoch
+* Smooth line charts (Chart.js)
+* Adjustable learning rate and number of epochs
 
-📊 3. Live Training Metrics
+### 🔍 4. Dataset Playground
 
-Tracks loss and accuracy per epoch
+* **XOR**
+* **Moons**
+* **Spiral**
 
-Smooth line charts (Chart.js)
+### ⚡ 5. Forward Pass Visualizer
 
-Supports adjustable learning rate + epochs
+* Run forward pass for any input
+* View activations layer-by-layer
+* “Run All XOR” mode shows full inference table
 
-🔍 4. Dataset Playground
+### 🧪 6. Evaluation Mode
 
-Switch between:
+* Compute **test accuracy** and **loss**
+* View predicted probabilities
+* Confidence threshold classification
+* Clean evaluation table
 
-XOR
+### 💾 7. Save & Load Models
 
-Moons
+* Download model (`model.json` + weights)
+* Save/load using **IndexedDB**
+* Continue training after loading
 
-Spiral
-Each dataset has train/test splits and categorical labels.
+---
 
-⚡ 5. Forward Pass & Activations
+## 🛠 Tech Stack
 
-Run forward pass on any custom input
+* React + TypeScript
+* TensorFlow.js
+* Vite
+* TailwindCSS
+* Chart.js
+* IndexedDB
 
-See per-layer activations
+---
 
-“Run All XOR” mode displays activations + predictions for all four XOR inputs
+## 📂 Project Structure
 
-🧪 6. Evaluation Mode
-
-Displays predicted probabilities
-
-Shows confidence thresholds
-
-Computes final test-set loss and accuracy
-
-Results table highlighting low-confidence predictions
-
-💾 7. Save & Load Models
-
-Save model to IndexedDB
-
-Download model files (model.json + weights)
-
-Load uploaded models for inference
-
-🛠️ Tech Stack
-Technology	Purpose
-React + TypeScript	UI and component logic
-TensorFlow.js	Neural network creation, training, inference
-Vite	Fast bundling & development
-TailwindCSS	Styling
-Chart.js	Training metric graphs
-IndexedDB	Local model storage
-📁 Project Structure
+```
 src/
  ├─ components/
  │   ├─ LayerEditor.tsx
@@ -98,56 +90,50 @@ src/
  │
  ├─ App.tsx
  └─ main.tsx
+```
 
-🧩 How It Works
-🧱 Build Model
+---
 
-A simple JSON-like layer spec is converted into a tf.Sequential model.
+## ▶️ Running Locally
 
-🎓 Training
-
-Uses TensorFlow.js .fit() with epoch callbacks to update the UI live.
-
-🔥 Activations
-
-Forward-pass is manually implemented through layer.apply() to extract
-per-layer activations even during inference.
-
-🖼 Visualization
-
-SVG-based network canvas dynamically renders neuron layers, links, and activation color.
-
-🚀 Running Locally
-git clone <repo-url>
+```bash
+git clone <your-repo-url>
 cd nn-visualizer
 npm install
 npm run dev
+```
 
+**Local dev:** [http://localhost:5173/](http://localhost:5173/)
 
-Open:
-👉 http://localhost:5173
+---
 
-🧪 Build for Production
+## 🏗️ Production Build
+
+```bash
 npm run build
 npm run preview
+```
 
-🌐 Deployment
+---
 
-This project is deployed on Vercel.
-To deploy your own version:
+## 🌐 Deployment
 
+This project is deployed via **Vercel**.
+To deploy your own fork:
+
+```bash
 npm i -g vercel
 vercel
+```
 
+Or import the GitHub repo directly:
+[https://vercel.com/new](https://vercel.com/new)
 
-Or use the Vercel GitHub import UI.
+---
 
-🙌 Author
+## 👤 Author
 
-Pranav Raj
-Beginner in Machine Learning | Deep Learning Learner | React & AI Projects
-Passionate about building practical tools to understand ML better.
+**Pranav Raj**
+AI & ML Developer • Deep Learning Learner • Full-Stack ML Enthusiast
 
-⭐ If you find this useful
-
-Please ⭐ the repo — it motivates further development!
+---
